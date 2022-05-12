@@ -73,17 +73,21 @@ Reconhecimento de sinal de mão pode ter dados modificados e adicionados para re
 
 ### Treino do Reconhecimento de Sinal da Mão
 #### 1. Coleta de Dados de Treino
-Pressione "k" para entra no modo para salvar os "key points" (mostrado como'「MODO: Captura de dados de landamarks da mão」）<br>
-<img src="https://user-images.githubusercontent.com/37477845/102235423-aa6cb680-3f35-11eb-8ebd-5d823e211447.jpg" width="60%"><br><br>
+Pressione "k" para entra no modo para salvar os "key points" (mostrado como'「MODO: Captura de dados de landamarks da mão」）<br><br>
+<img src = https://user-images.githubusercontent.com/88405559/168139450-afceebb0-3442-40c7-a41b-0429e577ac92.png width="60%"><br><br>
+Para sair do modo de captura basta pressionar "n".
 Se o usuário pressionar "0" to "9", os "key points" serão adicionados a "model/keypoint_classifier/keypoint_dataset.csv" como abaixo.<br>
-Primeira coluna: Número pressionada (usado como ID da classe), segunda coluna e subsequentes: Coordenadas do "key point"<br>
+Primeira coluna: número pressionado (usado como ID da classe), segunda coluna e subsequentes: coordenadas do "key point".<br><br>
 <img src="https://user-images.githubusercontent.com/37477845/102345725-28d26280-3fe1-11eb-9eeb-8c938e3f625b.png" width="80%"><br><br>
-As coordenadas do "key point" são as que passaram pelo seguinte pré-processamento até up to ④.<br>
+As coordenadas do "key point" são as que passaram pelo seguinte pré-processamento até up to ④.<br><br>
 <img src="https://user-images.githubusercontent.com/37477845/102242918-ed328c80-3f3d-11eb-907c-61ba05678d54.png" width="80%">
 <img src="https://user-images.githubusercontent.com/37477845/102244114-418a3c00-3f3f-11eb-8eef-f658e5aa2d0d.png" width="80%"><br><br>
 No estado inicial, 4 tipos de dados de aprendizado estão incluídos: letra A (ID da classe: 0), letra B (ID da classe: 1), letra C (ID da classe: 2), letra D (ID da classe: 3).<br>
-Se necessário, adicione ID 4 ou maior, ou delete os dados existentes do arquivo csv para preparar os dados de treino.<br>
-<img src="https://user-images.githubusercontent.com/37477845/102348846-d0519400-3fe5-11eb-8789-2e7daec65751.jpg" width="25%">　<img src="https://user-images.githubusercontent.com/37477845/102348855-d2b3ee00-3fe5-11eb-9c6d-b8924092a6d8.jpg" width="25%">　<img src="https://user-images.githubusercontent.com/37477845/102348861-d3e51b00-3fe5-11eb-8b07-adc08a48a760.jpg" width="25%">
+Se necessário, adicione ID 4 ou maior, ou delete os dados existentes do arquivo csv para preparar os dados de treino.<br><br>
+<img src=https://user-images.githubusercontent.com/88405559/168140568-191b2140-1ac1-46c3-9415-fd5e87b8dbb7.png width="60%">
+<img src=https://user-images.githubusercontent.com/88405559/168140576-ae93ccb0-48d8-4765-8e16-1a0fe361e662.png width="60%">
+<img src=https://user-images.githubusercontent.com/88405559/168140580-1febacf9-394d-40dc-80fe-c700aefc0918.png width="60%">
+
 
 #### 2. Treino do Modelo
 Abra "[keypoint_classification_mlp.ipynb](keypoint_classification_mlp.ipynb)" para modelo MLP-ANN, ou "[keypoint_classification_svm.ipynb](keypoint_classification_svm.ipynb)" para modelo SVM, no Jupyter Notebook e execute do topo até a última célula.<br>
