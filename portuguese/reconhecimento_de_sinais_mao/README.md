@@ -1,7 +1,7 @@
 # Reconhecimento de gestos/sinais das mãos, usando mediapipe e opencv
-Estima a pose da mão usando MediaPipe (Python version).<br> Este é uma programa 
-de exemplo que reconhece sinais da mão e dos dedos com uma simples rede neural artifical (ANN) usando MLP (Multilayer Perceptron) ou um aprendizado de máquina supervisionado (supervised ML), neste caso SVM (Support Vector Machine), a partir de pontos chaves reconhecidos da mão.
-<br> ❗ _️**Este programa foi adpatado do [original repo](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe).**_ ❗
+Classifica o sinal da mão usando MediaPipe (Python version).<br> Este é uma programa 
+de exemplo que reconhece sinais da mão e dos dedos com uma simples rede neural artifical (ANN) usando MLP (Multilayer Perceptron) ou um aprendizado de máquina supervisionado (supervised ML), neste caso SVM (Support Vector Machine), a partir de pontos chaves ("key points") reconhecidos da mão.
+<br> ❗ _️**Este programa foi adpatado do [repositório original](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe).**_ ❗
 <br> 
 
 
@@ -30,13 +30,13 @@ As seguintes opções podem ser especificadas ao rodar a demo.
 * --use_static_image_mode<br>Usar ou não a opção static_image_mode para inferência doMediaPipe (Default：Unspecified)
 * --min_detection_confidence<br>Limite do nível de confiança da detecção (Default：0.5)
 * --min_tracking_confidence<br>Limite do nível de confiança do tracking das mãos (Default：0.5)
+* --model<br>Modelo a ser utilizado na classificação do sinal da mão - 1: MLP-ANN | 2: SVM (Default：1)
 
 # Diretório
 <pre>
 │  app.py
-|  app_notebook.ipynb
 │  keypoint_classification_mlp.ipynb
-│  keypoint_classification_svm.ipynb.ipynb
+│  keypoint_classification_svm.ipynb
 │  
 └─ model
      └─ keypoint_classifier
@@ -51,7 +51,7 @@ As seguintes opções podem ser especificadas ao rodar a demo.
 
 </pre>
 ### app.py
-Este é o programa exemplo para inferência.<br>
+Este é o programa exemplo para inferência/classificação.<br>
 Além disso, também coleta dados de aprendizado para reconhecimento de sinais de mão.<br>
 
 ### keypoint_classification_svm.ipynb 
@@ -66,14 +66,14 @@ Os seguintes arquivos são armazenados:
 * Dados de treino (keypoint_dataset.csv)
 * Modelos treinados (keypoint_classifier_mlp.tflite e keypoint_classifier_svm.joblib)
 * Rótulo dos dados (keypoint_classifier_label.csv)
-* Módulos de inferência(keypoint_classifier_svm.py e keypoint_classifier_mlp.py)
+* Módulos de inferência (keypoint_classifier_svm.py e keypoint_classifier_mlp.py)
 
 # Treino
 Reconhecimento de sinal de mão pode ter dados modificados e adicionados para retreino do modelo.
 
 ### Treino do Reconhecimento de Sinal da Mão
 #### 1. Coleta de Dados de Treino
-Pressione "k" para entra no modo para salvar os "key points" (displayed as 「MODO: Captura de dados de landamarks da mão」）<br>
+Pressione "k" para entra no modo para salvar os "key points" (mostrado como'「MODO: Captura de dados de landamarks da mão」）<br>
 <img src="https://user-images.githubusercontent.com/37477845/102235423-aa6cb680-3f35-11eb-8ebd-5d823e211447.jpg" width="60%"><br><br>
 Se o usuário pressionar "0" to "9", os "key points" serão adicionados a "model/keypoint_classifier/keypoint_dataset.csv" como abaixo.<br>
 1st column: Número pressionada (usado como ID da classe), segunda coluna e subsequentes: Coordenadas do "key point"<br>

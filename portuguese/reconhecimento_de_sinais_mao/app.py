@@ -3,7 +3,7 @@ import os
 import csv
 import copy
 import argparse
-import itertools 
+import itertools
 
 import cv2 as cv
 import numpy as np
@@ -23,8 +23,8 @@ def get_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--device", type = int, default = 0) # câmera padrão/default
-    parser.add_argument("--width",  help = 'cap width' , type = int, default = 960) # largura do frame
-    parser.add_argument("--height", help = 'cap height', type = int, default = 540) # altura frame
+    parser.add_argument("--width",  help = 'cap width' , type = int, default = 640) # largura do frame 960
+    parser.add_argument("--height", help = 'cap height', type = int, default = 480) # altura frame 540
 
     parser.add_argument('--use_static_image_mode', action='store_true') # mão será detectada em todo frame
     parser.add_argument("--min_detection_confidence", # nível mínimo de confiança para detecção da mão
@@ -70,6 +70,9 @@ def main():
     cap.set(cv.CAP_PROP_FRAME_WIDTH, cap_width)
     cap.set(cv.CAP_PROP_FRAME_HEIGHT, cap_height)
 
+    # Instanciando gravador de vídeo
+    #video_writer = cv.VideoWriter('demo.avi', cv.VideoWriter_fourcc(*'MJPG'), 20.0, (cap_width, cap_height))
+
     # Carregando o modelo de deteção das mãos
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
@@ -111,13 +114,12 @@ def main():
 
         # Captura da imagem da câmera
         ret, image = cap.read()
-
         if not ret:
             print("cv2.read() retornou 'False'. Leitura da imagem falhou.")
             break
         image = cv.flip(image, 1)  # projetando imagem no espelho
         debug_image = copy.deepcopy(image)
-    
+        
         # Implementando a detecção da mão
         image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
 
@@ -157,10 +159,14 @@ def main():
                 )
         debug_image = draw_info(debug_image, mode, number)
 
+        # Gravando o vídeo
+        #video_writer.write(debug_image)
+
         # Mostrando a imagem processada
         cv.imshow('Reconhecimento de gestos de mao - ' + model_name, debug_image)
 
     cap.release()
+    #video_writer.release()
     cv.destroyAllWindows()
 
 # função para selecionar modo
