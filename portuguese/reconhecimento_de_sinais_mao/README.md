@@ -1,4 +1,4 @@
-# Reconhecimento de gestos/sinais das mãos, usando mediapipe e opencv
+# Reconhecimento de gestos/sinais das mãos, usando Mediapipe e Opencv
 Classifica o sinal da mão usando MediaPipe (Python version).<br> Este é uma programa 
 de exemplo que reconhece sinais da mão e dos dedos com uma simples rede neural artifical (ANN) usando MLP (Multilayer Perceptron) ou um aprendizado de máquina supervisionado (supervised ML), neste caso SVM (Support Vector Machine), a partir de pontos chaves ("key points") reconhecidos da mão.
 <br> ❗ _️**Este programa foi adpatado do [repositório original](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe).**_ ❗
@@ -93,10 +93,11 @@ Para mudar o número de classes de treino, mude o valor "NUM_CLASSES = 4" <br>e 
 * [MediaPipe](https://mediapipe.dev/)
 
 # Autor
-Kazuhito Takahashi(https://twitter.com/KzhtTkhs)
+[Kazuhito Takahashi](https://twitter.com/KzhtTkhs)
 
 # Alterações, Adaptações, Adições e Melhoras
-Pablo Oliveira (https://br.linkedin.com/in/pablo-oliveira-msc-cqf-88365716, https://github.com/pablofrioli)
+[Pablo Oliveira - LindedIn](https://br.linkedin.com/in/pablo-oliveira-msc-cqf-88365716)
+[Pablo Oliveira - GitHub](https://github.com/pablofrioli)
  
 # Licença
-hand-gesture-recognition-using-mediapipe está sob licença [Apache v2 license](LICENSE).
+reconhecimento_de_sinais_mao está sob licença [Apache v2 license](LICENSE).
