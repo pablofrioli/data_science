@@ -1,6 +1,6 @@
 # Reconhecimento de gestos/sinais das mãos, usando Mediapipe e Opencv
-Classifica o sinal da mão usando MediaPipe (Python version).<br> Este é uma programa 
-de exemplo que reconhece sinais da mão e dos dedos com uma simples rede neural artifical (ANN) usando MLP (Multilayer Perceptron) ou um aprendizado de máquina supervisionado (supervised ML), neste caso SVM (Support Vector Machine), a partir de pontos chaves ("key points") reconhecidos da mão.
+Classifica o sinal da mão usando MediaPipe (Python version).<br> Este é um programa 
+de exemplo que reconhece sinais da mão e dos dedos com uma simples rede neural artifical (ANN) usando MLP (Multilayer Perceptron), ou um aprendizado de máquina supervisionado (supervised ML), neste caso SVM (Support Vector Machine), a partir de pontos chaves ("key points") reconhecidos da mão.
 <br> ❗ _️**Este programa foi adpatado do [repositório original](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe).**_ ❗
 <br> 
 
@@ -25,8 +25,8 @@ python app.py
 
 As seguintes opções podem ser especificadas ao rodar a demo.
 * --device<br>Especifica o número do aparelho da câmera (Default：0)
-* --width<br>Largura da imagem no momento da captura da câmera (Default：960)
-* --height<br>Altura da imagem no momento da captura da câmera (Default：540)
+* --width<br>Largura da imagem no momento da captura da câmera (Default：640)
+* --height<br>Altura da imagem no momento da captura da câmera (Default：480)
 * --use_static_image_mode<br>Usar ou não a opção static_image_mode para inferência doMediaPipe (Default：Unspecified)
 * --min_detection_confidence<br>Limite do nível de confiança da detecção (Default：0.5)
 * --min_tracking_confidence<br>Limite do nível de confiança do tracking das mãos (Default：0.5)
@@ -76,7 +76,7 @@ Reconhecimento de sinal de mão pode ter dados modificados e adicionados para re
 Pressione "k" para entra no modo para salvar os "key points" (mostrado como'「MODO: Captura de dados de landamarks da mão」）<br>
 <img src="https://user-images.githubusercontent.com/37477845/102235423-aa6cb680-3f35-11eb-8ebd-5d823e211447.jpg" width="60%"><br><br>
 Se o usuário pressionar "0" to "9", os "key points" serão adicionados a "model/keypoint_classifier/keypoint_dataset.csv" como abaixo.<br>
-1st column: Número pressionada (usado como ID da classe), segunda coluna e subsequentes: Coordenadas do "key point"<br>
+Primeira coluna: Número pressionada (usado como ID da classe), segunda coluna e subsequentes: Coordenadas do "key point"<br>
 <img src="https://user-images.githubusercontent.com/37477845/102345725-28d26280-3fe1-11eb-9eeb-8c938e3f625b.png" width="80%"><br><br>
 As coordenadas do "key point" são as que passaram pelo seguinte pré-processamento até up to ④.<br>
 <img src="https://user-images.githubusercontent.com/37477845/102242918-ed328c80-3f3d-11eb-907c-61ba05678d54.png" width="80%">
